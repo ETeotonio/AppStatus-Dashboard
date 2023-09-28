@@ -1,0 +1,19 @@
+---
+hosts:
+  - host:
+      app_name: AppA
+      address: 192.168.0.54
+      health_check: /api/healthcheck
+      version_check: /api/version
+
+  - host:
+      app_name: AppB
+      address: 192.168.0.55
+      health_check: /api/healthcheck
+      version_check: /api/version
+      
+  - host:
+      app_name: This app
+      address: http://127.0.0.1:5000
+      health_check: /api/get_config
+      version_check: /api/version
