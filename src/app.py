@@ -4,7 +4,15 @@ import get_statuses
 import argparse
 
 
-config = 'config.yaml'
+parser = argparse.ArgumentParser(description='Dashboard configs')
+parser.add_argument(dest='config',action='store')
+args = parser.parse_args()
+
+
+if args.configs == None:
+    config = 'config.yaml'
+else:
+    config=args.config
 
 app=Flask(__name__)
 
@@ -29,3 +37,6 @@ def get_config():
 @app.route('/api/version')
 def get_version():
     return '0.0.1-beta'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0',port=5001,debug=True)
