@@ -27,17 +27,30 @@ hosts:
       version_check: Path to your version check
 ```
 
+The application has the parameter ```-config``` to specify the config file, if not specified the application will look for config.yaml.
+
 ## Starting the Application
 On the src folder run:
 
 ```console
-flask run
+python app.py
 ```
 
-The application will automatically start on port 5000.
+The application will automatically start on port 5001.
+
+## Docker
+I created the Dockerfile to run this app on a Docker container.
+To build the application run:
+```console
+docker build -t dashboard-app -f Dockerfile .
+```
+
+Once the image is built, run:
+```console
+docker run dashboard-app:latest -p 5001:80
+```
 
 ## Future Improvements
 - Async call for the dashboard - to update in real time
 - Set the update time on the front end
-- Dockerize the application
 - Improve the Dashboard interface - Currently just using Bootstrap
